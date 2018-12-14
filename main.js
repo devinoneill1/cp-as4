@@ -11,7 +11,7 @@ function vowelOrCons(letterIn) {
     const vowels = ['a', 'e', 'i', 'o', 'u']
     if (vowels.includes(letterIn.toLowerCase())) {
         return ('vowel')
-    } else if (letterIn === 'y') {
+    } else if (letterIn.toLowerCase() === 'y') {
         return ('vowel or consonant')
     } else {
         return ('consonant')
@@ -40,12 +40,8 @@ function daysInMonth(month, year) {
         'nov': 30,
         'dec': 31
     }
+    return (isLeapYear(year) && (month.slice(0, 3).toLowerCase() === 'feb')) ? ((monthNum[month.slice(0, 3).toLowerCase()]) + 1) : (monthNum[month.slice(0, 3).toLowerCase()])
 
-    if (isLeapYear(year) && (month.slice(0, 3).toLowerCase() === 'feb')) {
-        return ((monthNum[month.slice(0, 3).toLowerCase()]) + 1)
-    } else {
-        return (monthNum[month.slice(0, 3).toLowerCase()])
-    }
 }
 
 console.log(daysInMonth('february', '2016')) // returns 31
