@@ -5,6 +5,7 @@ function isLeapYear(year) {
 
 console.log(isLeapYear('2012')) // returns true 
 console.log(isLeapYear('2010')) // returns false
+
 // Code for Part Two 
 function vowelOrCons(letterIn) {
     const vowels = ['a', 'e', 'i', 'o', 'u']
@@ -24,9 +25,27 @@ console.log(vowelOrCons('h')) // return 'consonant'
 
 // Code for Part Three 
 
+function daysInMonth(month, year) {
+    var monthNum = {
+        'jan': 31,
+        'feb': 28,
+        'mar': 31,
+        'apr': 30,
+        "may": 31,
+        'jun': 30,
+        'jul': 31,
+        'aug': 31,
+        'sep': 30,
+        'oct': 31,
+        'nov': 30,
+        'dec': 31
+    }
 
+    if (isLeapYear(year) && (month.slice(0, 3).toLowerCase() === 'feb')) {
+        return ((monthNum[month.slice(0, 3).toLowerCase()]) + 1)
+    } else {
+        return (monthNum[month.slice(0, 3).toLowerCase()])
+    }
+}
 
-
-
-
-//daysInMonth('December') // returns 31
+console.log(daysInMonth('february', '2016')) // returns 31
